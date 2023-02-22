@@ -21,7 +21,7 @@
 #define CMD_NORM	0
 #define CMD_OR		1
 #define CMD_AND		2
-#define CMD_CHAIN	3
+#define CMD_CHAIN 3
 
 /* for convert_number() */
 #define CONVERT_LOWERCASE	1
@@ -35,7 +35,6 @@
 #define HIST_MAX	4096
 
 extern char **environ;
-
 
 /**
  * struct liststr - singly linked list
@@ -51,7 +50,6 @@ typedef struct liststr
 } list_t;
 
 /**
-<<<<<<< HEAD
  * struct passinfo - contains pseudo-arguements to pass into a function,
  * allowing uniform prototype for function pointer struct
  * @arg: a string generated from getline containing arguements
@@ -72,28 +70,6 @@ typedef struct liststr
  * @cmd_buf_type: CMD_type ||, &&, ;
  * @readfd: the fd from which to read line input
  * @histcount: the history line number count
-=======
- *struct passinfo - contains pseudo-arguements to pass into a function,
- *		allowing uniform prototype for function pointer struct
- *@arg: a string generated from getline containing arguements
- *@argv: an array of strings generated from arg
- *@path: a string path for the current command
- *@argc: the argument count
- *@line_count: the error count
- *@err_num: the error code for exit()s
- *@linecount_flag: if on count this line of input
- *@fname: the program filename
- *@env: linked list local copy of environ
- *@environ: custom modified copy of environ from LL env
- *@history: the history node
- *@alias: the alias node
- *@env_changed: on if environ was changed
- *@status: the return status of the last exec'd command
- *@cmd_buf: address of pointer to cmd_buf, on if chaining
- *@cmd_buf_type: CMD_type ||, &&, ;
- *@readfd: the fd from which to read line input
- *@histcount: the history line number count
->>>>>>> 890c75128b5e2aa40c2d8c4b3825c98efcf6e7f7
  */
 typedef struct passinfo
 {
@@ -119,29 +95,18 @@ typedef struct passinfo
 } info_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-<<<<<<< HEAD
+	{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 		0, 0, 0}
-
 /**
  * struct builtin - contains a builtin string and related function
  * @type: the builtin command flag
  * @func: the function
-=======
-	0, 0, 0}
-
-/**
- *struct builtin - contains a builtin string and related function
- *@type: the builtin command flag
- *@func: the function
->>>>>>> 890c75128b5e2aa40c2d8c4b3825c98efcf6e7f7
  */
 typedef struct builtin
 {
 	char *type;
 	int (*func)(info_t *);
 } builtin_table;
-
 
 /* toem_shloop.c */
 int hsh(info_t *, char **);
